@@ -1,6 +1,6 @@
 
 {
-  "name": "Crocodile_Bot",
+  "name": "Revan Oyun Bot",
   "description": "kelime oyunu",
   "keywords": [
     "telegram",
@@ -9,7 +9,7 @@
     "manager",
     "3"
   ],
-  "repository": "https://github.com/Goqerti/sozbotragnarok",
+  "repository": "https://github.com/XTQ067/sozbotragnarok",
   
   "addons": [
     {
