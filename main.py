@@ -40,6 +40,7 @@ def help(update, context):
     update.message.reply_text('Mövcud əmrlər:\n' +
                               '/basla - Yeni oyun başladmaq\n' +
                               '/master - Aparıcı olmaq\n' +
+                              '/cancel - oyunu dayandırar
                               '/rating - Qrup üzrə reytinq', reply_to_message_id=True)
 
 
@@ -67,7 +68,7 @@ def command_start(update, context: CallbackContext):
     if update.effective_chat.type == "private":
         
         addme = InlineKeyboardButton(text="🧚 Qrupa əlavə edin!", url="https://t.me/LuksCrocadilBot?startgroup=a")
-        sohbet = InlineKeyboardButton(text="💬 Support Qrupumuz", url="https://t.me/The_Yildiz_Grouo")
+        sohbet = InlineKeyboardButton(text="💬 Support Qrupumuz", url="https://t.me/NeonSUP")
         oyun = InlineKeyboardButton(text="👾 Sahib", url="https://t.me/ismayilzadevuqar")
         admin = InlineKeyboardButton(text="👨🏻‍💻 Kanal", url="https://t.me/LuksProject")
 
@@ -89,6 +90,12 @@ def command_start(update, context: CallbackContext):
 
         update.message.reply_text('Söz Oyunu Başladı✨'.format(username), reply_to_message_id=True)
 
+        set_master(update, context)
+
+
+        game = get_or_finish_game(chat_id)
+        game.cancel()
+        update.message.reply_text('Soz Oyunu Bitti💥'.format(username), reply_to_message_id=True)
         set_master(update, context)
 
 
